@@ -1,26 +1,20 @@
 import React from 'react';
 import AbilityScore from './AbilityScore';
 
-const AbilityList = ({ abilities, cost}) => {
+const AbilityList = ({ abilities}) => {
 
-	// const abilities = {
-	// 	'STR': 'Strength',
-	// 	'DEX': 'Dexterity',
-	// 	'CON': 'Constitution',
-	// 	'INT': 'Intelligence',
-	// 	'WIS': 'Wisdom',
-	// 	'CHR': 'Charisma'
-	// };
-
-	Object.entries(abilities).map((item, index) => {
-		return (
-			<div key={item[0]}>
-
-				<AbilityScore
-
-				/>
-
-			</div>
-		)
-	});
+	// Object.entries(abilities).map((item, index) => {
+	// 	return (
+	// 		<div key={index}>
+	//
+	// 			{/*<AbilityScore*/}
+	// 				{/*ability={item[0]}*/}
+	// 				{/*val={item[1]}*/}
+	// 			{/*/>*/}
+	//
+	// 		</div>
+	// 	)
+	// });
 };
+
+export default AbilityList;

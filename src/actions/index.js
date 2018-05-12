@@ -7,7 +7,7 @@ export const modifyAbility = (ability, adjustment) => {
 	}
 };
 
-export const totalPoints = adjustment => {
+export const adjustTotal = adjustment => {
 	return {
 		type: 'SET_TOTAL_POINTS',
 		adjustment

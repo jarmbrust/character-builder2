@@ -1,5 +1,5 @@
 import { MODIFY_ABILITY, SET_TOTAL_POINTS } from '../actions/types'
-import {totalPoints} from "../actions";
+import { adjustTotal, modifyAbility } from "../actions";
 
 const initialState = [{
 	Strength: {
@@ -39,8 +39,12 @@ const abilities = (state = initialState, action) => {
 			// 		: ability;
 			// });
 		case SET_TOTAL_POINTS:
-			return state.map(total => total.totalPoints = total.totalPoints + action.adjustment);
+			console.log(state);
+			return state.map(total =>
+				total.totalPoints = total.totalPoints + 1);//action.totalPoints.adjustment);
 		//[...state, {totalPoints: totalPoints + action.points}];
 		default: return state
 	}
 };
+
+export default abilities
