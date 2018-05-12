@@ -1,0 +1,2 @@
+export const MODIFY_ABILITY = 'MODIFY_ABILITY';
+export const SET_TOTAL_POINTS = 'SET_TOTAL_POINTS';
