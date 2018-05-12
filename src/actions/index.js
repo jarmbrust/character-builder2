@@ -1,7 +1,8 @@
+import { MODIFY_ABILITY, SET_TOTAL_POINTS } from './types'
 
 export const modifyAbility = (ability, adjustment) => {
 	return {
-		type: 'MODIFY_ABILITY',
+		type: MODIFY_ABILITY,
 		id: ability,
 		adjustment
 	}
@@ -9,7 +10,7 @@ export const modifyAbility = (ability, adjustment) => {
 
 export const adjustTotal = adjustment => {
 	return {
-		type: 'SET_TOTAL_POINTS',
+		type: SET_TOTAL_POINTS,
 		adjustment
 	}
 };

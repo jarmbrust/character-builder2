@@ -8,10 +8,15 @@ import './App.css';
 class App extends Component {
 
 	handleOnClick() {
-		console.log('-->', this.props.store);
+		console.log('SET_TOTAL_POINTS-click->', this.props.store);
 		this.props.store.dispatch({
-			type: SET_TOTAL_POINTS
+			type: SET_TOTAL_POINTS,
+			adjustment: 1
 		});
+	}
+
+	getTotalPoints({  }) {
+
 	}
 
   render() {
@@ -27,25 +32,26 @@ class App extends Component {
 
 					{/*/>*/}
 					<button onClick={() => {
-						adjustTotal(1);
+						this.handleOnClick();
 						console.log('?');
 					}}>
 						Click
 					</button>
-					<p>{this.props.totalPoints}</p>
+					<p>test: {this.props.totalPoints}</p>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, test) => {
-	console.log('===>',state, test);
-	return { totalPoints: state.totalPoints };
+const mapStateToProps = (state) => {
+	const total = state.filter((total) => total.id === 'TP');
+	console.log('mapStateToProps===>',state, total);
+	return { totalPoints: total[0].val };
 };
 
-const mapDispatchToProps = dispatch => ({
-	adjustTotal: id => dispatch(adjustTotal)
-});
+// const mapDispatchToProps = dispatch => ({
+// 	adjustTotal: id => dispatch(adjustTotal)
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
