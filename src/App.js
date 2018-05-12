@@ -15,29 +15,23 @@ class App extends Component {
 		});
 	}
 
-	getTotalPoints({  }) {
-
-	}
-
   render() {
-
-
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Character Builder v0.02</h1>
         </header>
         <div>
-					{/*<AbilityList*/}
-
-					{/*/>*/}
+					<AbilityList
+						ability={this.props.statSheet[1][0]}
+					/>
 					<button onClick={() => {
 						this.handleOnClick();
 						console.log('?');
 					}}>
 						Click
 					</button>
-					<p>test: {this.props.totalPoints}</p>
+					<p>test: { console.log(this.props.statSheet)}{ this.props.statSheet[0][0].val}</p>
         </div>
       </div>
     );
@@ -46,8 +40,15 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	const total = state.filter((total) => total.id === 'TP');
-	console.log('mapStateToProps===>',state, total);
-	return { totalPoints: total[0].val };
+	const str = state.filter((stat) => stat.id === 'STR');
+	// console.log('mapStateToProps===>' ,state, total);
+
+	const statSheet = [
+		total,
+		str
+	];
+	// console.log('statSheet', statSheet[0][0].val);
+	return { statSheet: statSheet };
 };
 
 // const mapDispatchToProps = dispatch => ({

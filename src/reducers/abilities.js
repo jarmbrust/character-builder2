@@ -1,5 +1,4 @@
 import { MODIFY_ABILITY, SET_TOTAL_POINTS } from '../actions/types'
-import { adjustTotal, modifyAbility } from "../actions";
 
 const initialState = [
 	{ name: 'Strength', id: 'STR', val: 8 },
@@ -16,9 +15,9 @@ const abilities = (state = initialState, action) => {
 		case MODIFY_ABILITY:
 			return state.map(abilityScore => abilityScore[action.id].score = action.adjustment);
 
-		case SET_TOTAL_POINTS:
-		//	console.log('SET_TOTAL_POINTS==>', state, action);
 
+
+		case SET_TOTAL_POINTS:
 			return state.map(total =>
 				total.id === 'TP'
 					? {...total, val: total.val + action.adjustment }
