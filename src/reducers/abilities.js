@@ -13,10 +13,11 @@ const initialState = [
 const abilities = (state = initialState, action) => {
 	switch (action.type) {
 		case MODIFY_ABILITY:
-			return state.map(abilityScore => abilityScore[action.id].score = action.adjustment);
-
-
-
+			return state.map(abilityScore =>
+				abilityScore.id === action.id
+					? {...abilityScore, val: abilityScore.val + 1 }
+					: abilityScore
+			);
 		case SET_TOTAL_POINTS:
 			return state.map(total =>
 				total.id === 'TP'
