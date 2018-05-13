@@ -23,7 +23,7 @@ class App extends Component {
         </header>
         <div>
 					<AbilityList
-						ability={this.props.statSheet[1][0]}
+						ability={this.props.statSheet}
 					/>
 					<button onClick={() => {
 						this.handleOnClick();
@@ -39,18 +39,28 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+
+	// this is ugly, will need to refactor
 	const total = state.filter((total) => total.id === 'TP');
 	const str = state.filter((stat) => stat.id === 'STR');
+	const dex = state.filter((stat) => stat.id === 'DEX');
+	const con = state.filter((stat) => stat.id === 'CON');
+	const int = state.filter((stat) => stat.id === 'INT');
+	const wis = state.filter((stat) => stat.id === 'WIS');
+	const chr = state.filter((stat) => stat.id === 'CHR');
 
 	const statSheet = [
 		total,
-		str
+		str,
+		dex,
+		con,
+		int,
+		wis,
+		chr
 	];
+
+	console.log('statSheet',statSheet);
 	return { statSheet: statSheet };
 };
-
-// const mapDispatchToProps = dispatch => ({
-// 	adjustTotal: id => dispatch(adjustTotal)
-// });
 
 export default connect(mapStateToProps)(App);

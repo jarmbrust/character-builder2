@@ -18,22 +18,4 @@ const AbilityScore = ({ dispatch, ability, val, id }) => {
 	)
 };
 
-// function somethingWasClicked(id) {
-// 	console.log('id', id);
-// 	return {
-// 		type: MODIFY_ABILITY,
-// 		adjustment: 1,
-// 		id: { id }
-// 	};
-// }
-//
-// function mapDispatchToProps(dispatch) {
-// 	// console.log('dispatch=', dispatch);
-// 	//
-// 	//
-// 	// return {
-// 	// 	thisIsTest: id => dispatch(somethingWasClicked(id)),
-// 	// }
-// }
-
 export default connect()(AbilityScore);

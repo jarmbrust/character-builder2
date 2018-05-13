@@ -16,7 +16,7 @@ const abilities = (state = initialState, action) => {
 		case MODIFY_ABILITY:
 			return state.map(abilityScore =>
 				abilityScore.id === action.id
-					? {...abilityScore, val: abilityScore.val + 1 }
+					? {...abilityScore, val: abilityScore.val + action.adjustment }
 					: abilityScore
 			);
 		case SET_TOTAL_POINTS:
