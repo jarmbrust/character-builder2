@@ -41,13 +41,11 @@ class App extends Component {
 const mapStateToProps = (state) => {
 	const total = state.filter((total) => total.id === 'TP');
 	const str = state.filter((stat) => stat.id === 'STR');
-	// console.log('mapStateToProps===>' ,state, total);
 
 	const statSheet = [
 		total,
 		str
 	];
-	// console.log('statSheet', statSheet[0][0].val);
 	return { statSheet: statSheet };
 };
 

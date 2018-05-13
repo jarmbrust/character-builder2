@@ -1,23 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {SET_TOTAL_POINTS, MODIFY_ABILITY} from "../actions/types";
+import {SET_TOTAL_POINTS, MODIFY_ABILITY} from '../actions/types';
+import { modifyAbility } from '../actions';
+import { bindActionCreators } from 'redux';
 
-const AbilityScore = ({ ability, val }) => {
-
-	// function handleOnClick() {
-	// 	this.props.store.dispatch({
-	// 		type: MODIFY_ABILITY,
-	// 		adjustment: 1
-	// 	});
-	// }
-
+const AbilityScore = ({ dispatch, ability, val, id }) => {
 	return (
 		<div className="ability-score">
 			<span>{ability}</span>
 			<span>{val}</span>
 			<button onClick={() => {
-				console.log('test');
-				return this.thisIsTest
+				dispatch(modifyAbility(id, 1));
 			}}>
 				Click
 			</button>
@@ -25,20 +18,22 @@ const AbilityScore = ({ ability, val }) => {
 	)
 };
 
-function somethingWasClicked(id) {
-	console.log('id', id);
-	return {
-		type: MODIFY_ABILITY,
-		adjustment: 1,
-		id: { id }
-	};
-}
+// function somethingWasClicked(id) {
+// 	console.log('id', id);
+// 	return {
+// 		type: MODIFY_ABILITY,
+// 		adjustment: 1,
+// 		id: { id }
+// 	};
+// }
+//
+// function mapDispatchToProps(dispatch) {
+// 	// console.log('dispatch=', dispatch);
+// 	//
+// 	//
+// 	// return {
+// 	// 	thisIsTest: id => dispatch(somethingWasClicked(id)),
+// 	// }
+// }
 
-function mapDispatchToProps(dispatch) {
-	console.log('dispatch', dispatch);
-	return {
-		thisIsTest: id => dispatch(this.somethingWasClicked(id)),
-	}
-}
-
-export default connect(mapDispatchToProps)(AbilityScore);
+export default connect()(AbilityScore);

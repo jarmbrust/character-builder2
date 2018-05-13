@@ -11,6 +11,7 @@ const initialState = [
 ];
 
 const abilities = (state = initialState, action) => {
+	console.log('ACTION', action);
 	switch (action.type) {
 		case MODIFY_ABILITY:
 			return state.map(abilityScore =>

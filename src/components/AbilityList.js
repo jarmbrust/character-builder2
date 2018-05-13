@@ -7,6 +7,7 @@ const AbilityList = ({ability}) => {
 		<div key={ability.id}>
 			<AbilityScore
 				ability={ability.name}
+				id={ability.id}
 				val={ability.val}
 			/>
 		</div>
