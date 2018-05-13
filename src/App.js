@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import AbilityList from './components/AbilityList';
 import { connect } from 'react-redux';
-import { MODIFY_ABILITY, SET_TOTAL_POINTS } from './actions/types'
-import { adjustTotal } from "./actions";
 import './App.css';
 
 class App extends Component {
-
-	handleOnClick() {
-		console.log('SET_TOTAL_POINTS-click->', this.props.store);
-		this.props.store.dispatch({
-			type: SET_TOTAL_POINTS,
-			adjustment: 1
-		});
-	}
 
   render() {
     return (
@@ -25,12 +15,6 @@ class App extends Component {
 					<AbilityList
 						ability={this.props.statSheet}
 					/>
-					<button onClick={() => {
-						this.handleOnClick();
-						console.log('?');
-					}}>
-						Click
-					</button>
 					<p>test: { console.log(this.props.statSheet)}{ this.props.statSheet[0][0].val}</p>
         </div>
       </div>
@@ -59,7 +43,6 @@ const mapStateToProps = (state) => {
 		chr
 	];
 
-	console.log('statSheet',statSheet);
 	return { statSheet: statSheet };
 };
 

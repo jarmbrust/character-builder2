@@ -2,21 +2,20 @@ import React from 'react';
 import AbilityScore from './AbilityScore';
 
 const AbilityList = ({ability}) => (
-//	{console.log('ability', ability);}
-	<ul className="ability-list">
+	<div className="ability-list">
 		{ Object.entries(ability).map((abt) =>{
-			console.log('abt', abt);
-
-			return <li key={abt[1][0].id}>
-				<AbilityScore
-					ability={abt[1][0].name}
-					id={abt[1][0].id}
-					val={abt[1][0].val}
-				/>
-			</li>
+			if (abt[1][0].id !== 'TP') {
+				return <div key={abt[1][0].id}>
+					<AbilityScore
+						ability={abt[1][0].name}
+						id={abt[1][0].id}
+						val={abt[1][0].val}
+					/>
+				</div>
+			}
 		})
 		}
-	</ul>
+	</div>
 );
 
 export default AbilityList;

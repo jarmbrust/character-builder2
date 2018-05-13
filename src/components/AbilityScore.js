@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {SET_TOTAL_POINTS, MODIFY_ABILITY} from '../actions/types';
-import { modifyAbility } from '../actions';
-import { bindActionCreators } from 'redux';
+import { modifyAbility, adjustTotal } from '../actions';
 
 const AbilityScore = ({ dispatch, ability, val, id }) => {
 	return (
@@ -11,8 +9,15 @@ const AbilityScore = ({ dispatch, ability, val, id }) => {
 			<span>{val}</span>
 			<button onClick={() => {
 				dispatch(modifyAbility(id, 1));
+				dispatch(adjustTotal(1));
 			}}>
-				Click
+				+
+			</button>
+			<button onClick={() => {
+				dispatch(modifyAbility(id, -1));
+				dispatch(adjustTotal(-1));
+			}}>
+				-
 			</button>
 		</div>
 	)
